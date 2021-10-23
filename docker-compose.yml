@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+
+  flask:
+    image: 'flask:latest'
+    ports:
+      - '5000:5000'
+      - '7777:7777'
+      - '8000:8000'
+    volumes:
+      - .:/flask_profiler
+    restart: on-failure
+    env_file:
+      - ./.env
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+
